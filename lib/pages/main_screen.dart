@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizwiz/pages/quiz_page.dart';
+import 'package:quizwiz/pages/start_a_challenge/quiz_category.dart';
 
 import 'main_screen/create_quiz_page.dart';
 
@@ -71,7 +71,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const QuizPage(),
+                        builder: (context) => const QuizCategory(),
                       ),
                     );
                   },

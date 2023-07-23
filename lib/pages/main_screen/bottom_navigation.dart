@@ -34,7 +34,7 @@ class _BottomNavState extends State<BottomNav> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey.shade900,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
@@ -47,30 +47,38 @@ class _BottomNavState extends State<BottomNav> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
               rippleColor: Colors.grey[300]!,
-              hoverColor: Colors.grey[100]!,
+              hoverColor: Colors.deepPurple.shade200,
               gap: 8,
-              activeColor: Colors.black,
+              activeColor: Colors.deepPurple,
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
+              tabBackgroundColor: Colors.deepPurple.shade200,
               color: Colors.black,
               tabs: const [
                 GButton(
                   icon: Icons.home,
+                  iconColor: Colors.white,
                   text: 'Home',
+                  textColor: Colors.white,
                 ),
                 GButton(
                   icon: Icons.add,
+                  iconColor: Colors.white,
                   text: 'Challenge',
+                  textColor: Colors.white,
                 ),
                 GButton(
                   icon: Icons.leaderboard,
+                  iconColor: Colors.white,
                   text: 'Scoreboard',
+                  textColor: Colors.white,
                 ),
                 GButton(
                   icon: Icons.person,
                   text: 'Profile',
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
                 ),
               ],
               selectedIndex: _selectedIndex,
