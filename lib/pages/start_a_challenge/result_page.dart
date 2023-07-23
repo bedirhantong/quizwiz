@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizwiz/pages/main_screen/scoreboard_screen.dart';
-
 import '../main_screen/bottom_navigation.dart';
 
 class ResultPage extends StatefulWidget {
