@@ -1,7 +1,4 @@
-# Threads App Clone
-
-This is a clone app of Threads app but with customized features.
-
+# QuizWiz App Clone
 
 ## Table of Contents
 
@@ -20,7 +17,7 @@ This is a clone app of Threads app but with customized features.
 
 - Customize your profile
 
-- You can challange the quizzes with your friends
+- You can challenge the quizzes with your friends
 
 - You can add friends
 

@@ -15,26 +15,40 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
   List<String> questions = [
-    'Flutter is an open-source UI software development kit developed by Google. T',
-    'Flutter applications only work on desktop computers.F',
-    'Dart programming language is the official language used for Flutter applications.T',
-    'Flutter creates interfaces by combining elements called Widgets.T',
-    'Flutter can only be used to develop Android applications.F',
-    'Flutter\'s official logo is an Infinity symbol inside a blue circle.T',
-    'Flutter can only be published on the Google Play Store.F',
-    'Flutter doesn\'t provide any pre-built UI components.F',
-    'Hot Reload is a feature in Flutter that enables developers to see changes instantly without restarting the app.T',
-    'Flutter uses HTML for rendering UI elements.F',
+    'Flutter is an open-source UI software development kit developed by Google.',
+    'Flutter applications only work on desktop computers.',
+    'Dart programming language is the official language used for Flutter applications',
+    'Flutter creates interfaces by combining elements called Widgets.',
+    'Flutter can only be used to develop Android applications.',
+    'Flutter\'s official logo is an Infinity symbol inside a blue circle.',
+    'Flutter can only be published on the Google Play Store.',
+    'Flutter doesn\'t provide any pre-built UI components.',
+    'Hot Reload is a feature in Flutter that enables developers to see changes instantly without restarting the app.',
+    'Flutter uses HTML for rendering UI elements.',
+  ];
+  List<bool> answers = [
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    false,
+    false,
+    true,
+    false
   ];
 
   String question = '';
   int index = 0;
   int numOfTrue = 0;
   int numOfFalse = 0;
+  late bool rightAnswer;
 
   @override
   void initState() {
     question = questions.elementAt(0);
+    rightAnswer = answers.elementAt(0);
     super.initState();
   }
 
@@ -70,6 +84,7 @@ class _QuizPageState extends State<QuizPage> {
       );
     } else {
       question = questions[index];
+      rightAnswer = answers[index];
     }
   }
 
@@ -119,16 +134,33 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  setState(
-                    () {
-                      changeQuestion();
-                      numOfTrue++;
+                  print('correct answer is  : ' + rightAnswer.toString());
+                  if (rightAnswer == true) {
+                    print('you got it right');
+                    numOfTrue++;
+                    setState(() {
                       scoreKeeper.add(
                         const Icon(
                           Icons.check,
                           color: Colors.green,
                         ),
                       );
+                    });
+                  } else {
+                    print('you got it wrong');
+                    numOfFalse++;
+                    setState(() {
+                      scoreKeeper.add(
+                        const Icon(
+                          Icons.close,
+                          color: Colors.red,
+                        ),
+                      );
+                    });
+                  }
+                  setState(
+                    () {
+                      changeQuestion();
                     },
                   );
                 },
@@ -148,16 +180,33 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  setState(
-                    () {
-                      changeQuestion();
-                      numOfFalse++;
+                  print('correct answer is  : ' + rightAnswer.toString());
+                  if (rightAnswer == false) {
+                    print('you got it right');
+                    numOfTrue++;
+                    setState(() {
+                      scoreKeeper.add(
+                        const Icon(
+                          Icons.check,
+                          color: Colors.green,
+                        ),
+                      );
+                    });
+                  } else {
+                    print('you got it wrong');
+                    numOfFalse++;
+                    setState(() {
                       scoreKeeper.add(
                         const Icon(
                           Icons.close,
                           color: Colors.red,
                         ),
                       );
+                    });
+                  }
+                  setState(
+                    () {
+                      changeQuestion();
                     },
                   );
                 },
