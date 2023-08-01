@@ -14,13 +14,8 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home',
-      style: optionStyle,
-    ),
+    HomePage(),
     ChallengeScreen(),
     ScoreboardScreen(),
     ProfileScreen(),
@@ -90,6 +85,173 @@ class _BottomNavState extends State<BottomNav> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
+    return Scaffold(
+      backgroundColor: Colors.deepPurple.shade300,
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: ListTile(
+              title: const Text(
+                'Bedirhan Tonğ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: const Text(
+                'Welcome to QuizWiz',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Buradan profile gönder'),
+                    ),
+                  );
+                },
+                iconSize: 50,
+                icon: const CircleAvatar(
+                  backgroundImage:
+                      AssetImage('assets/images/user_image_dummy_data/me.jpg'),
+                ),
+              ),
+            ),
+          ),
+          Card(
+            shadowColor: Colors.black,
+            color: Colors.transparent,
+            // recent quiz
+            child: ListTile(
+              leading: const Icon(
+                Icons.music_note_outlined,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Recent Quiz',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: const Text(
+                'A quiz you recently played on Flutter',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Buradan quize gönder',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.send,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Card(
+            color: Colors.transparent,
+            // recent quiz
+            child: Stack(
+              children: [
+                Container(
+                  height: screenSize.height * 0.35,
+                  width: screenSize.width * 0.9,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: const DecorationImage(
+                      image: AssetImage(
+                          'assets/images/user_image_dummy_data/challenge.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    height: screenSize.height * 0.16,
+                    width: screenSize.width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Find your friends and challenge them',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Text(
+                            'A quiz you recently played on Flutter',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.purple),
+                            ),
+                            onPressed: () {},
+                            child: const Text(
+                              'Find Friends',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
