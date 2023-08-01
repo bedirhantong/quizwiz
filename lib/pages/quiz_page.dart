@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:material_dialogs/dialogs.dart';
 import 'package:material_dialogs/widgets/buttons/icon_button.dart';
+import 'package:quizwiz/pages/questions/question.dart';
 import 'package:quizwiz/pages/start_a_challenge/result_page.dart';
 import 'package:lottie/lottie.dart';
 
@@ -39,7 +40,33 @@ class _QuizPageState extends State<QuizPage> {
     false
   ];
 
-  String question = '';
+  Question q1 = Question(
+      q: 'Flutter is an open-source UI software development kit developed by Google.',
+      a: true);
+  Question q2 = Question(
+      q: 'Flutter applications only work on desktop computers.', a: false);
+  Question q3 = Question(
+      q: 'Dart programming language is the official language used for Flutter applications',
+      a: true);
+  Question q4 = Question(
+      q: 'Flutter creates interfaces by combining elements called Widgets.',
+      a: true);
+  Question q5 = Question(
+      q: 'Flutter can only be used to develop Android applications.', a: false);
+  Question q6 = Question(
+      q: 'Flutter\'s official logo is an Infinity symbol inside a blue circle.',
+      a: true);
+  Question q7 = Question(
+      q: 'Flutter can only be published on the Google Play Store.', a: false);
+  Question q8 = Question(
+      q: 'Flutter doesn\'t provide any pre-built UI components.', a: false);
+  Question q9 = Question(
+      q: 'Hot Reload is a feature in Flutter that enables developers to see changes instantly without restarting the app.',
+      a: true);
+  Question q10 =
+      Question(q: 'Flutter uses HTML for rendering UI elements.', a: false);
+
+  String currentQuestion = '';
   int index = 0;
   int numOfTrue = 0;
   int numOfFalse = 0;
@@ -47,7 +74,7 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   void initState() {
-    question = questions.elementAt(0);
+    currentQuestion = questions.elementAt(0);
     rightAnswer = answers.elementAt(0);
     super.initState();
   }
@@ -62,7 +89,7 @@ class _QuizPageState extends State<QuizPage> {
             msg: 'Congratulations, you won 500 points',
             title: 'Congratulations',
             lottieBuilder: Lottie.asset(
-              'assets/images/quiz_types/congrats.json',
+              'assets/images/quiz_types/programming/congrats.json',
               fit: BoxFit.contain,
             ),
             dialogWidth: kIsWeb ? 0.3 : null,
@@ -70,7 +97,11 @@ class _QuizPageState extends State<QuizPage> {
             actions: [
               IconsButton(
                 onPressed: () {
-                  navigateToResultPage(context);
+                  setState(() {
+                    Navigator.pop(context);
+                    navigateToResultPage(context);
+                  });
+                  // navigateToResultPage(context);
                 },
                 text: 'Claim',
                 iconData: Icons.done,
@@ -83,7 +114,7 @@ class _QuizPageState extends State<QuizPage> {
         },
       );
     } else {
-      question = questions[index];
+      currentQuestion = questions[index];
       rightAnswer = answers[index];
     }
   }
@@ -111,7 +142,7 @@ class _QuizPageState extends State<QuizPage> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  question,
+                  currentQuestion,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 25.0,
@@ -134,9 +165,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  print('correct answer is  : ' + rightAnswer.toString());
                   if (rightAnswer == true) {
-                    print('you got it right');
                     numOfTrue++;
                     setState(() {
                       scoreKeeper.add(
@@ -147,7 +176,6 @@ class _QuizPageState extends State<QuizPage> {
                       );
                     });
                   } else {
-                    print('you got it wrong');
                     numOfFalse++;
                     setState(() {
                       scoreKeeper.add(
@@ -180,9 +208,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  print('correct answer is  : ' + rightAnswer.toString());
                   if (rightAnswer == false) {
-                    print('you got it right');
                     numOfTrue++;
                     setState(() {
                       scoreKeeper.add(
@@ -193,7 +219,6 @@ class _QuizPageState extends State<QuizPage> {
                       );
                     });
                   } else {
-                    print('you got it wrong');
                     numOfFalse++;
                     setState(() {
                       scoreKeeper.add(

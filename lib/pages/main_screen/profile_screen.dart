@@ -12,6 +12,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurple.shade300,
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade900,
+        centerTitle: true,
+        title: const Text('QuizWiz'),
+      ),
       body: const Center(
           child: Text(
         'Profile',

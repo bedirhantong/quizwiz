@@ -16,11 +16,11 @@ class _ResultPageState extends State<ResultPage> {
       body: Center(
         child: OutlinedButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(
-                builder: (context) => const BottomNav(),
-              ),
+              MaterialPageRoute(builder: (context) => const BottomNav()),
+              (route) =>
+                  false, // Tüm diğer sayfaları stackten kaldırmak için "false" döndürüyoruz.
             );
           },
           child: const Text('Check is done'),
