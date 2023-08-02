@@ -64,6 +64,7 @@ flutter:
     - assets/images/quiz_types/
     - assets/images/user_image_dummy_data/
     - assets/images/quiz_types/programming/
+    - assets/images/user_image_dummy_data/users_friends/
 
 
   # To add assets to your application, add an assets section, like this:
