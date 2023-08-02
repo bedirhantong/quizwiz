@@ -30,61 +30,54 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
               child: Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Center(
-                  child: Text(
-                    'Welcome to QuizWiz.',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30.0,
-                    ),
+                  child: Image(
+                    image: AssetImage('assets/images/quiz_choose/route.png'),
                   ),
                 ),
               ),
             ),
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.black87),
-                      onPressed: () {
-                        setState(
-                          () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PlayWithFriends(),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      child: const Text(
-                        'Play with friends',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: Colors.black87),
+                    onPressed: () {
+                      setState(
+                        () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PlayWithFriends(),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: const Text(
+                      'Play with friends',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.white70),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const QuizCategory(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Play solo',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: Colors.white70),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizCategory(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Play solo',
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 )

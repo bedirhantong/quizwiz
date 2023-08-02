@@ -10,13 +10,21 @@ class ScoreboardScreen extends StatefulWidget {
 class _ScoreboardScreenState extends State<ScoreboardScreen> {
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.deepPurple,
       body: Column(
         children: [
-          Center(child: Text('Scoreboard')),
+          AppBar(
+            backgroundColor: Colors.deepPurple,
+            centerTitle: true,
+            title: const Text(
+              'Scoreboard',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+              ),
+            ),
+          ),
         ],
       ),
     );

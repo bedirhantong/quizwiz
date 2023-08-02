@@ -288,6 +288,43 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            BuildFriendsAvatar(
+                              image:
+                                  'https://avatars.githubusercontent.com/u/129434780?v=4',
+                              username: 'sinan',
+                            ),
+                            BuildFriendsAvatar(
+                              image:
+                                  'https://avatars.githubusercontent.com/u/102352030?v=4',
+                              username: 'serhan',
+                            ),
+                            BuildFriendsAvatar(
+                              image:
+                                  'https://avatars.githubusercontent.com/u/41289874?v=4',
+                              username: 'musa',
+                            ),
+                            BuildFriendsAvatar(
+                              image:
+                                  'https://avatars.githubusercontent.com/u/94411717?v=4',
+                              username: 'yusuf',
+                            ),
+                            BuildFriendsAvatar(
+                              image:
+                                  'https://avatars.githubusercontent.com/u/94488767?v=4',
+                              username: 'ibo',
+                            ),
+                            BuildFriendsAvatar(
+                              image:
+                                  'https://avatars.githubusercontent.com/u/98186031?v=4',
+                              username: 'onur',
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 )
@@ -296,6 +333,51 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class BuildFriendsAvatar extends StatelessWidget {
+  const BuildFriendsAvatar({
+    super.key,
+    required this.image,
+    required this.username,
+  });
+
+  final String image;
+  final String username;
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
+    return Container(
+      height: screenSize.width * 0.15 + 40, // Adjust this value as needed
+
+      child: IconButton(
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Buradan profile gönder'),
+              ),
+            );
+          },
+          iconSize: screenSize.width * 0.15,
+          icon: Column(
+            children: [
+              CircleAvatar(
+                backgroundImage: NetworkImage(image),
+                radius: 30,
+              ),
+              Text(
+                username,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14),
+              ),
+            ],
+          )),
     );
   }
 }
