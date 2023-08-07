@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../main_screen/bottom_navigation.dart';
+import '../main_screen_with_bottom_nav/bottom_navigation.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key});

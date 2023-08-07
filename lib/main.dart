@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizwiz/pages/main_screen/bottom_navigation.dart';
+import 'package:quizwiz/pages/login/login_screen.dart';
 
 void main() {
   runApp(const QuizWiz());
@@ -17,7 +17,7 @@ class QuizWiz extends StatelessWidget {
         body: const SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: BottomNav(),
+            child: OfficialLoginPage(),
           ),
         ),
       ),
