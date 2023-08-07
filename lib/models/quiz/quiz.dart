@@ -3,7 +3,7 @@ import '../questions/question.dart';
 class Quiz {
   String? id;
   String quizName = "";
-  String numberOfQuestion = "";
+  int numberOfQuestion = 10;
   String imageString = "";
   List<Question> questions = [];
   // String token = "";
@@ -13,5 +13,6 @@ class Quiz {
     required this.quizName,
     required this.numberOfQuestion,
     required this.imageString,
+    required this.questions,
   });
 }
