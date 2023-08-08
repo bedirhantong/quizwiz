@@ -1,7 +1,19 @@
-import '../questions/question.dart';
-import '../quiz/quiz.dart';
+import '../../questions/question.dart';
+import '../../quiz/quiz.dart';
 
 class ProgrammingQuizzes {
+  static List<Quiz> programming = [
+    flutterLangBasicsQuiz,
+    kotlinLangBasicsQuiz,
+    javaBasicsQuiz,
+    cProgrammingQuiz,
+    webProgrammingBasicsQuiz,
+    androidBasicsQuiz,
+    dotNetBasicsQuiz,
+    cSharpBasicsQuiz,
+    cyberSecurityBasicsQuiz
+  ];
+
   static Quiz flutterLangBasicsQuiz = Quiz(
     quizName: 'Programming',
     numberOfQuestion: 10,

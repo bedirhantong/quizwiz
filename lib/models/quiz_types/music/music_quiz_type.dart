@@ -1,5 +1,5 @@
-import '../questions/question.dart';
-import '../quiz/quiz.dart';
+import '../../questions/question.dart';
+import '../../quiz/quiz.dart';
 
 class MusicQuiz {
   static Quiz turkishPopMusicQuiz = Quiz(

@@ -9,7 +9,9 @@ import '../models/questions/question.dart';
 import '../models/quiz/quiz.dart';
 
 class QuizPage extends StatefulWidget {
-  const QuizPage({super.key});
+  const QuizPage({super.key, required this.quiz});
+
+  final Quiz quiz;
 
   @override
   State<QuizPage> createState() => _QuizPageState();
@@ -17,67 +19,6 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
-
-  List<Question> questions = [
-    Question(
-        q: 'Flutter is an open-source UI software development kit developed by Google.',
-        a: true),
-    Question(
-        q: 'Flutter applications only work on desktop computers.', a: false),
-    Question(
-        q: 'Dart programming language is the official language used for Flutter applications',
-        a: true),
-    Question(
-        q: 'Flutter creates interfaces by combining elements called Widgets.',
-        a: true),
-    Question(
-        q: 'Flutter can only be used to develop Android applications.',
-        a: false),
-    Question(
-        q: 'Flutter\'s official logo is an Infinity symbol inside a blue circle.',
-        a: true),
-    Question(
-        q: 'Flutter can only be published on the Google Play Store.', a: false),
-    Question(
-        q: 'Flutter doesn\'t provide any pre-built UI components.', a: false),
-    Question(
-        q: 'Hot Reload is a feature in Flutter that enables developers to see changes instantly without restarting the app.',
-        a: true),
-    Question(q: 'Flutter uses HTML for rendering UI elements.', a: false),
-  ];
-  Quiz quiz = Quiz(
-    quizName: 'Programming',
-    numberOfQuestion: 10,
-    imageString: 'imageString',
-    questions: [
-      Question(
-          q: 'Flutter is an open-source UI software development kit developed by Google.',
-          a: true),
-      Question(
-          q: 'Flutter applications only work on desktop computers.', a: false),
-      Question(
-          q: 'Dart programming language is the official language used for Flutter applications',
-          a: true),
-      Question(
-          q: 'Flutter creates interfaces by combining elements called Widgets.',
-          a: true),
-      Question(
-          q: 'Flutter can only be used to develop Android applications.',
-          a: false),
-      Question(
-          q: 'Flutter\'s official logo is an Infinity symbol inside a blue circle.',
-          a: true),
-      Question(
-          q: 'Flutter can only be published on the Google Play Store.',
-          a: false),
-      Question(
-          q: 'Flutter doesn\'t provide any pre-built UI components.', a: false),
-      Question(
-          q: 'Hot Reload is a feature in Flutter that enables developers to see changes instantly without restarting the app.',
-          a: true),
-      Question(q: 'Flutter uses HTML for rendering UI elements.', a: false),
-    ],
-  );
 
   Question currentQuestion = Question(q: '', a: false);
   int index = 0;
@@ -87,14 +28,14 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   void initState() {
-    currentQuestion = questions.elementAt(0);
-    rightAnswer = questions.elementAt(0).questionAnswer;
+    currentQuestion = widget.quiz.questions.elementAt(0);
+    rightAnswer = widget.quiz.questions.elementAt(0).questionAnswer;
     super.initState();
   }
 
   void changeQuestion() {
     index++;
-    if (index == questions.length) {
+    if (index == widget.quiz.questions.length) {
       setState(
         () {
           Dialogs.materialDialog(
@@ -127,8 +68,8 @@ class _QuizPageState extends State<QuizPage> {
         },
       );
     } else {
-      currentQuestion = questions[index];
-      rightAnswer = questions[index].questionAnswer;
+      currentQuestion = widget.quiz.questions[index];
+      rightAnswer = widget.quiz.questions[index].questionAnswer;
     }
   }
 

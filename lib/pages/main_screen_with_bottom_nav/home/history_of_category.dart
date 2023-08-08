@@ -6,11 +6,13 @@ class BuildHistoryOfCategory extends StatelessWidget {
     required this.screenSize,
     required this.category,
     required this.image,
+    required this.page,
   });
 
   final Size screenSize;
   final String category;
   final String image;
+  final Widget page;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class BuildHistoryOfCategory extends StatelessWidget {
               width: screenSize.width * 0.4,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withOpacity(0.4),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -47,17 +49,24 @@ class BuildHistoryOfCategory extends StatelessWidget {
                     category,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 10,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      backgroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => page,
+                        ),
+                      );
+                    },
                     child: const Text(
-                      'See the history',
+                      'See More',
                       style: TextStyle(color: Colors.white),
                     ),
                   )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../choose_category/programming/programming_quizzes_categories_page.dart';
 import 'friends_avatar.dart';
 import 'history_of_category.dart';
 
@@ -17,29 +18,41 @@ class _HomePageState extends State<HomePage> {
 
     List<BuildHistoryOfCategory> historyOfCategories = [
       BuildHistoryOfCategory(
-          screenSize: screenSize,
-          category: 'Programming',
-          image: 'assets/images/quiz_types/programming.png'),
+        screenSize: screenSize,
+        category: 'Programming',
+        image: 'assets/images/quiz_types/categories/ProgrammingQuizzes.png',
+        page: const ProgrammingCategoriesPage(),
+      ),
       BuildHistoryOfCategory(
-          screenSize: screenSize,
-          category: 'Art',
-          image: 'assets/images/quiz_types/art.png'),
+        screenSize: screenSize,
+        category: 'Art',
+        image: 'assets/images/quiz_types/categories/art.png',
+        page: const HomePage(),
+      ),
       BuildHistoryOfCategory(
-          screenSize: screenSize,
-          category: 'Engineering',
-          image: 'assets/images/quiz_types/engineering.png'),
+        screenSize: screenSize,
+        category: 'Engineering',
+        image: 'assets/images/quiz_types/categories/engineering.png',
+        page: const HomePage(),
+      ),
       BuildHistoryOfCategory(
-          screenSize: screenSize,
-          category: 'Math',
-          image: 'assets/images/quiz_types/math.png'),
+        screenSize: screenSize,
+        category: 'Math',
+        image: 'assets/images/quiz_types/categories/math.png',
+        page: const HomePage(),
+      ),
       BuildHistoryOfCategory(
-          screenSize: screenSize,
-          category: 'Science',
-          image: 'assets/images/quiz_types/science.png'),
+        screenSize: screenSize,
+        category: 'Science',
+        image: 'assets/images/quiz_types/categories/science.png',
+        page: const HomePage(),
+      ),
       BuildHistoryOfCategory(
-          screenSize: screenSize,
-          category: 'History',
-          image: 'assets/images/quiz_types/history.png'),
+        screenSize: screenSize,
+        category: 'History',
+        image: 'assets/images/quiz_types/categories/history.png',
+        page: const HomePage(),
+      ),
     ];
     List<BuildFriendsAvatar> historyFriendsAvatar = [
       const BuildFriendsAvatar(

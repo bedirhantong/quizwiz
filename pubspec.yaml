@@ -33,8 +33,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/quiz_types/
-    - assets/images/user_image_dummy_data/
+    - assets/images/quiz_types/popular/
+    - assets/images/quiz_types/categories/
     - assets/images/quiz_types/programming/
+    - assets/images/user_image_dummy_data/
     - assets/images/user_image_dummy_data/users_friends/
     - assets/images/quiz_choose/
     - assets/images/login/

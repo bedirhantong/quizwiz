@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizwiz/pages/play_with_friends/play_with_friends.dart';
-import 'package:quizwiz/pages/start_a_challenge/quiz_category.dart';
+import 'package:quizwiz/pages/play_with_friends/invite_friends.dart';
+
+import 'choose_category/choose_category.dart';
 
 class ChallengeScreen extends StatefulWidget {
   const ChallengeScreen({super.key});
@@ -14,6 +15,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const Text(''),
         backgroundColor: Colors.grey.shade900,
         centerTitle: true,
         title: const Text('QuizWiz'),
@@ -49,7 +51,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const PlayWithFriends(),
+                              builder: (context) => const InviteFriends(),
                             ),
                           );
                         },
@@ -70,7 +72,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const QuizCategory(),
+                          builder: (context) => const ChooseCategory(),
                         ),
                       );
                     },
