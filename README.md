@@ -1,4 +1,6 @@
 # QuizWiz App Clone
+![](assets/images/screenshots/quizwiz_dash.png)
+
 
 ## Table of Contents
 
@@ -7,7 +9,7 @@
 * [Contribution](#contribution)
 * [Technologies](#technologies)
 * [Future additions](#future)
-* [Screenshots](#screenshots)
+
 
 
 
@@ -70,4 +72,7 @@ If you would like to contribute to this project, please follow the steps below:
 - [ ] Search for Quizzes
 - [ ] Challenge with your friend
 
-## Screenshots
+|                   0000                    |                   0001                   |                   0010                   |                       0011                        |
+|:-----------------------------------------:|:----------------------------------------:|:----------------------------------------:|:-------------------------------------------------:|
+| ![](assets/images/screenshots/home.png) | ![](assets/images/screenshots/categories.png) | ![](assets/images/screenshots/quiz.png) | ![](assets/images/screenshots/settings.png) |
+
